@@ -20,3 +20,15 @@ after_success:
   - docker push caption01/muti-docker-nginx
   - docker push caption01/muti-docker-server
   - docker push caption01/muti-docker-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: ap-southeast-1
+  app: muti-docker
+  env: MutiDocker-env
+  bucket_name: elasticbeanstalk-ap-southeast-1-616520069289
+  bucket_path: docker-muti
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
