@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t caption01/muti-docker-testing -f ./client/Dockerfile.dev ./client
+  - docker build -t caption01/muti-docker-testing -f ./client/Dockerfile.dev .
 
 script:
   - docker run -e CI=true caption01/muti-docker-testing npm run test -- --coverage
