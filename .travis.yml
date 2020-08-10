@@ -1,0 +1,22 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t caption01/muti-docker-testing -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true caption01/muti-docker-testing npm run test -- --coverage
+
+after_success:
+  - docker build -t caption01/muti-docker-client ./client
+  - docker build -t caption01/muti-docker-nginx ./nginx
+  - docker build -t caption01/muti-docker-server ./server
+  - docker build -t caption01/muti-docker-worker ./worker
+  # LOGIN TO DOCKER CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # PUSH IMAGES TO DOCKER HUB
+  - docker push caption01/muti-docker-client
+  - docker push caption01/muti-docker-nginx
+  - docker push caption01/muti-docker-server
+  - docker push caption01/muti-docker-worker
