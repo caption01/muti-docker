@@ -1,4 +1,5 @@
 sudo: required
+language: generic
 services:
   - docker
 
@@ -22,7 +23,7 @@ after_success:
   - docker push caption01/muti-docker-worker
 
 deploy:
-  edge: true
+  # edge: true
   provider: elasticbeanstalk
   region: "ap-southeast-1"
   app: "muti-docker"
