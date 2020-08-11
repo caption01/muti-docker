@@ -21,6 +21,20 @@
       "hostname": "worker",
       "essential": false,
       "memory": 128
+    },
+    {
+      "name": "nginx",
+      "image": "caption01/muti-docker-nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"],
+      "memory": 128
     }
   ]
 }
