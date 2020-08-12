@@ -26,10 +26,10 @@ deploy:
   # edge: true
   provider: elasticbeanstalk
   region: "ap-southeast-1"
-  app: "muti-docker"
-  env: "MutiDocker-env"
+  app: "muti-docker-2"
+  env: "MutiDocker2-env"
   bucket_name: "elasticbeanstalk-ap-southeast-1-616520069289"
-  bucket_path: "docker-muti"
+  bucket_path: "docker-muti-2"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
