@@ -9,7 +9,9 @@ function App() {
     <Router>
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to react AWS muti-docker-2 ver2</h1>
+          <h1 className="App-title">
+            Welcome to react AWS muti-docker-2 ver2 clone P'aut
+          </h1>
           <Link to="/">Home</Link>
           <Link to="/otherpage">OtherPage</Link>
         </header>
